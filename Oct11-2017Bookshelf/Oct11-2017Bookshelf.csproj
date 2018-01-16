@@ -163,9 +163,9 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Author2Controller.cs" />
     <Compile Include="Controllers\BooksController.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -177,7 +177,12 @@
     <Compile Include="Migrations\201710120032492_AddAuthors.Designer.cs">
       <DependentUpon>201710120032492_AddAuthors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201710122257387_AddAuthors1.cs" />
+    <Compile Include="Migrations\201710122257387_AddAuthors1.Designer.cs">
+      <DependentUpon>201710122257387_AddAuthors1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Author2.cs" />
     <Compile Include="Models\Book.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\Oct11_2017BookshelfContext.cs" />
@@ -240,6 +245,11 @@
     <Content Include="Views\Books\Details.cshtml" />
     <Content Include="Views\Books\Edit.cshtml" />
     <Content Include="Views\Books\Index.cshtml" />
+    <Content Include="Views\Author2\Create.cshtml" />
+    <Content Include="Views\Author2\Delete.cshtml" />
+    <Content Include="Views\Author2\Details.cshtml" />
+    <Content Include="Views\Author2\Edit.cshtml" />
+    <Content Include="Views\Author2\Index.cshtml" />
     <Content Include="Views\Categories\Create.cshtml" />
     <Content Include="Views\Categories\Delete.cshtml" />
     <Content Include="Views\Categories\Details.cshtml" />
@@ -261,6 +271,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201710120032492_AddAuthors.resx">
       <DependentUpon>201710120032492_AddAuthors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201710122257387_AddAuthors1.resx">
+      <DependentUpon>201710122257387_AddAuthors1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

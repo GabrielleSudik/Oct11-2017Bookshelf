@@ -10,116 +10,107 @@ using Oct11_2017Bookshelf.Models;
 
 namespace Oct11_2017Bookshelf.Controllers
 {
-    public class BooksController : Controller
+    public class Author2Controller : Controller
     {
         private Oct11_2017BookshelfContext db = new Oct11_2017BookshelfContext();
 
-        // GET: Books
+        // GET: Author2
         public ActionResult Index()
         {
-            var books = db.Books.Include(b => b.Author2).Include(b => b.Category);
-            return View(books.ToList());
+            return View(db.Author2.ToList());
         }
 
-        // GET: Books/Details/5
+        // GET: Author2/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            Author2 author2 = db.Author2.Find(id);
+            if (author2 == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(author2);
         }
 
-        // GET: Books/Create
+        // GET: Author2/Create
         public ActionResult Create()
         {
-            ViewBag.Author2ID = new SelectList(db.Author2, "ID", "Title");
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name");
             return View();
         }
 
-        // POST: Books/Create
+        // POST: Author2/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Description,ISBN,DatePublished,Author,CategoryID,Author2ID")] Book book)
+        public ActionResult Create([Bind(Include = "ID,Title,Language")] Author2 author2)
         {
             if (ModelState.IsValid)
             {
-                db.Books.Add(book);
+                db.Author2.Add(author2);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Author2ID = new SelectList(db.Author2, "ID", "Title", book.Author2ID);
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", book.CategoryID);
-            return View(book);
+            return View(author2);
         }
 
-        // GET: Books/Edit/5
+        // GET: Author2/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            Author2 author2 = db.Author2.Find(id);
+            if (author2 == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Author2ID = new SelectList(db.Author2, "ID", "Title", book.Author2ID);
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", book.CategoryID);
-            return View(book);
+            return View(author2);
         }
 
-        // POST: Books/Edit/5
+        // POST: Author2/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Title,Description,ISBN,DatePublished,Author,CategoryID,Author2ID")] Book book)
+        public ActionResult Edit([Bind(Include = "ID,Title,Language")] Author2 author2)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(book).State = EntityState.Modified;
+                db.Entry(author2).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Author2ID = new SelectList(db.Author2, "ID", "Title", book.Author2ID);
-            ViewBag.CategoryID = new SelectList(db.Categories, "ID", "Name", book.CategoryID);
-            return View(book);
+            return View(author2);
         }
 
-        // GET: Books/Delete/5
+        // GET: Author2/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Book book = db.Books.Find(id);
-            if (book == null)
+            Author2 author2 = db.Author2.Find(id);
+            if (author2 == null)
             {
                 return HttpNotFound();
             }
-            return View(book);
+            return View(author2);
         }
 
-        // POST: Books/Delete/5
+        // POST: Author2/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Book book = db.Books.Find(id);
-            db.Books.Remove(book);
+            Author2 author2 = db.Author2.Find(id);
+            db.Author2.Remove(author2);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

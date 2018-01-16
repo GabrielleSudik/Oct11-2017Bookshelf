@@ -22,5 +22,7 @@ namespace Oct11_2017Bookshelf.Models
         public System.Data.Entity.DbSet<Oct11_2017Bookshelf.Models.Book> Books { get; set; }
 
         public System.Data.Entity.DbSet<Oct11_2017Bookshelf.Models.Category> Categories { get; set; }
+
+        public System.Data.Entity.DbSet<Oct11_2017Bookshelf.Models.Author2> Author2 { get; set; }
     }
 }
